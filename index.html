@@ -2,13 +2,24 @@
 
 <head>
   <title>Ityped V.2</title>
+  <meta charset="utf-8">
   <style>
+    body{
+      /* background-color:pink; */
+    }
+    .container{
+      width:640px;
+      /* position:relative; */
+      margin:200px auto;
+      /* background: blue; */
+      height:500px;
+    }
     .ityped-cursor {
       font-size: 2.2rem;
       opacity: 1;
-      -webkit-animation: blink 5s infinite;
-      -moz-animation: blink 5s infinite;
-      animation: blink 5s infinite;
+      -webkit-animation: blink 10s infinite;
+      -moz-animation: blink 10s infinite;
+      animation: blink 10s infinite;
       animation-direction: alternate;
     }
     @keyframes blink {
@@ -26,6 +37,28 @@
         opacity: 0;
       }
     }
+    .jk{
+      /* position:absolute;
+      top:0;
+      left:0; */
+      width:100%;
+      animation-name:jk1;
+
+      animation-duration:10s;
+      animation-fill-mode: forwards;
+    }
+    @keyframes jk1 {
+      0%{transform:scale(20);
+          opacity:0.5;}
+      95%{transform: scale(2);
+           opacity:1;
+           transform: translateY(500px);}
+      100%{opacity:0;}
+    }
+    #ityped{
+      font-size:5rem;
+      z-index: 10000;
+    }
   </style>
 </head>
 
@@ -33,14 +66,14 @@
   <div id="app">
     <span id="ityped"></span>
   </div>
-  <div>
-    <!-- <input type="text" id="placeholder"> -->
+  <div class="container">
+    <img src="http://yu-ki.net/wp-content/uploads/2015/12/TSJ93_kokuhakujk20150208100556-thumb-1000xauto-18256.jpg" alt="" class="jk">
   </div>
   <script src="https://unpkg.com/ityped@1.0.2"></script>
   <script>
     ityped.init(document.querySelector("#ityped"), {
       showCursor: false,
-      strings: ['おはようございますGitHub初めて使ってみました。', 'はてなブログではこのタイプライターアニメーションのやつ使えなかったので', 'GitHubpagesで使ってみました', '人生って難しいですよね']
+      strings: ['名越くんのこと実は前から好きだったんです', 'よかったらこのラブレター受け取ってください', '嘘だよ死ねよお前']
     })
     // ityped.init("#placeholder", {
     //   placeholder: true,
