@@ -8,11 +8,11 @@
       /* background-color:pink; */
     }
     .container{
-      width:640px;
+      width:100%;
       /* position:relative; */
-      margin:200px auto;
+      margin:100px auto;
       /* background: blue; */
-      height:500px;
+      height:100%;
     }
     .ityped-cursor {
       font-size: 2.2rem;
@@ -41,22 +41,27 @@
       /* position:absolute;
       top:0;
       left:0; */
-      width:100%;
+      float: left;
+      width:50%;
       animation-name:jk1;
 
       animation-duration:10s;
-      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+      animation-direction:alternate;
     }
     @keyframes jk1 {
-      0%{transform:scale(20);
+      0%{transform:scale(10);
           opacity:0.5;}
       95%{transform: scale(2);
            opacity:1;
-           transform: translateY(500px);}
-      100%{opacity:0;}
+         transform: translateY(-50px);}
+      100%{opacity:0;
+            transform:scale(1.5);
+            transform: translateY(-50px)}
     }
     #ityped{
-      font-size:5rem;
+      font-size:2rem;
+      font-weight: bold;
       z-index: 10000;
     }
   </style>
