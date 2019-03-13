@@ -37,8 +37,9 @@
       #label{
         font-weight:bold;
       }
-      .btn{
+      #btn{
         display:inline-block;
+        /* margin-top:0px; */
         width:150px;
         background:#00aaff;
         padding:5px;
@@ -48,16 +49,24 @@
         cursor:pointer;
         box-shadow: 0 4px 0 #0088cc;
         float:right;
+        user-select:none;
+      }
+      #btn.pushed{
+        box-shadow: 0 0 0 #0088cc;
+        margin-top:4px;
       }
       .warning{
         color:red;
+      }
+      a{
+        text-decoration:none;
       }
     </style>
   </head>
   <body>
     <div class="container">
       <textarea placeholder="your comment hire" id="comment"></textarea>
-      <div class='btn'>Submit</div>
+      <div id = 'btn'><a href="#">Submit</a></div>
       <p><span id ="label"></span>characters left</p>
     </div>
     <script>
@@ -65,7 +74,7 @@
         'use strict';
         var comment = document.getElementById('comment');
         var label = document.getElementById('label');
-
+        var btn = document.getElementById('btn');
         var LIMIT = 30;
         var WARNING = 10;
         label.textContent= LIMIT;
@@ -79,6 +88,15 @@
               label.classList.remove('warning');
           }
            // label.className = remaining < WARNING ? 'warning' : '';
+        });
+
+        btn.addEventListener('mousedown',function(){
+          this.classList.add('pushed');
+
+        });
+        btn.addEventListener('mouseup',function(){
+          this.classList.remove('pushed');
+
         });
 
 
