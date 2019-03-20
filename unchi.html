@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+      p{
+        padding:0;
+        margin:0;
+        font-size:30px;
+      }
+      .container{
+        width:640px;
+        
+        margin:0 auto;
+        /* background:pink; */
+      }
+      h1{
+        text-align: center;
+      }
+      ul{
+        padding:0;
+        overflow: hidden;
+      }
+      ul>li{
+        float: left;
+        list-style: none;
+      }
+      .kuro{
+        position: fixed;
+        top:50%;
+        left:50%;
+        /* margin-left:-200px; */
+        width:100px;
+        height:100px;
+        
+      }
+      .a{
+        display:none;
+      }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-container">
+        <h1>あああ疲れたなあ</h1>
+      </div>
+    </header>
+    <main>
+      <div class="main-container">
+        <ul class="main-images">
+          <li><img width='320px' src="https://cdn-ak.f.st-hatena.com/images/fotolife/s/show-co/20170109/20170109202514.jpg" alt=""></li>
+          <li><img width='320px' src="https://assets.media-platform.com/lifehacker/dist/images/2015/05/150526_10waysbehappy-w960.jpg" alt=""></li>
+        </ul>
+        <p>今日</p>
+        <p>僕は</p>
+        <p>なんとか</p>
+        <p>生きた</p>
+        <p>やったね</p>
+      </div>
+      <img id='mask' class='a' src="https://otekomachi.yomiuri.co.jp/wp-content/uploads/2019/02/9263e8728b929eaeed82333fe97bde28.jpg" alt="">
+
+    </main>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      (function(){
+        'use strict';
+        var kuro =document.getElementById('mask');
+        var text = document.querySelectorAll('p');
+        var images = document.querySelectorAll('img');
+        var title = document.querySelectorAll('h1');
+        setTimeout(function(){
+          images[1].src = 'http://ありがとう感謝.com/wp-content/uploads/2018/04/pixta_16219222_S-1.jpg';
+          // images[0].height =
+          // images[0].src = 'https://images-na.ssl-images-amazon.com/images/I/91Ewt6oXtdL._SY445_.jpg';
+          // text[0].textContent='たおさん+三銃士';
+
+        },5000);
+        setTimeout(function(){
+          // images[1].src = 'http://ありがとう感謝.com/wp-content/uploads/2018/04/pixta_16219222_S-1.jpg';
+          // images[0].height =
+          images[0].src = 'https://images-na.ssl-images-amazon.com/images/I/91Ewt6oXtdL._SY445_.jpg';
+          // text[0].textContent='たおさん+三銃士';
+
+        },8000);
+        setTimeout(function(){
+          // images[1].src = 'http://ありがとう感謝.com/wp-content/uploads/2018/04/pixta_16219222_S-1.jpg';
+          // images[0].height =
+          // images[0].src = 'https://images-na.ssl-images-amazon.com/images/I/91Ewt6oXtdL._SY445_.jpg';
+          title[0].textContent='ありがとうたおさん+三銃士';
+          title[0].style.color = 'red';
+
+        },11000);
+        setTimeout(function(){
+          // images[1].src = 'http://ありがとう感謝.com/wp-content/uploads/2018/04/pixta_16219222_S-1.jpg';
+          // images[0].height =
+          // images[0].src = 'https://images-na.ssl-images-amazon.com/images/I/91Ewt6oXtdL._SY445_.jpg';
+          // title[0].textContent='ありが
+          text[0].textContent = '黒マスクまじでいいわ';
+          text[0].style.color = 'pink';
+          text[1].textContent = 'ケーキも美味しかったよおおおおおおおお';
+          text[1].style.color = 'red';
+          text[2].textContent = 'パックのおかげで綺麗になれたし';
+          text[2].style.color = 'blue';
+          text[3].textContent = 'わいも名古屋で頑張ります';
+          text[3].style.color = 'green';
+          text[4].textContent = 'また会えたら会いましょう！！！！！';
+          text[4].style.color = 'gray';
+        },11000);
+        setTimeout(function(){
+          kuro.classList.add("kuro");
+          kuro.classList.remove("a");
+          
+          
+
+        },5000);
+        
+        
+
+      })();
+    </script>
+</body>
+</html>
