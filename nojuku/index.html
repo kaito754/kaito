@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/ fb# prefix属性: http://ogp.me/ns/ prefix属性#">
+ 
+            <meta property="og:url" content="https://kaito754.github.io/kaito/nojuku/" />
+             
+            <meta property="og:type" content="website" />
+             
+            <meta property="og:title" content="さらばのーじゅく、さらば早稲田" />
+             
+            <meta property="og:description" content="ありがとうの気持ちを早稲田とのーじゅくに" />
+             
+            <meta property="og:site_name" content="さらばのーじゅく" />
+             
+            <meta property="og:image" content="https://www.pakutaso.com/shared/img/thumb/PPP_tesagyoudenaewoueru_TP_V.jpg" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
+    <title>さらばのーじゅく</title>
     <style>
 
 *{
@@ -192,7 +204,7 @@ article{
 
   var options = {
     fps : 16,
-    timeOffset : 5,
+    timeOffset : 1,
     textColor : '#000',
     fontSize : "50px",
     useCanvas : false,
@@ -383,14 +395,14 @@ var shuffler = document.getElementById('shuffler');
 
 var headText = new WordShuffler(headline,{
   textColor : '#34bc12',
-  timeOffset : 29,
+  timeOffset : 6,
   mixCapital : true,
   mixSpecialCharacters : true
 });
 
 var pText = new WordShuffler(text,{
   textColor : '#34bc12',
-  timeOffset : 5
+  timeOffset : 1
 });
 
 // var buttonText = new WordShuffler(shuffler,{
@@ -417,11 +429,11 @@ setTimeout(function(){
     // console.log(h1);
 
     
-},35000)
+},8000)
 setTimeout(function(){
     $('#headline').fadeOut(3000);
     $('#text').fadeOut(3000);
-},32000)
+},5000)
 
 //   shuffler.addEventListener('click',function () {
 //     headText.restart();
