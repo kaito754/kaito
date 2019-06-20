@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      body {
+        padding-top: 40px;
+        font-family: 'Courier New', sans-serif;
+        text-align: center;
+      }
+      #target {
+        font-size:40px;
+        letter-spacing: 3px;
+      }
+      .info {
+        color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <p id ="target"></p>
+    <p class = "info">
+      Letters count: <span id = "score"></span>
+       Miss count: <span id="miss"></span>
+       Remaining Time: <span id="timer"></span>
+
+    </p>
+
+    <script>
+      (function(){
+        'use strict';
+
+        var words = [
+        'nagoshi',
+        'nago',
+        'kaito',
+        '754',
+        'love',
+        'nagosisan',
+        'nagoccho',
+        'nagosan',
+                    ]
+        var currentWord;
+        var currentLocation = 0;
+        var score;
+        var miss;
+        var timer;
+        var target = document.getElementById('target');
+        var scoreLabel = document.getElementById('score');
+        var missLabel = document.getElementById('miss');
+        var timerLabel = document.getElementById('timer');
+        var isStarted;
+        var timerId;
+        function init(){
+          currentWord = 'click to start';
+          currentLocation = 0;
+          score = 0;
+          miss = 0;
+          timer = 10;
+          target.textContent = currentWord;
+          scoreLabel.textContent = score;
+          missLabel.textContent = miss;
+          timerLabel.textContent = timer;
+          isStarted = false;
+        }
+
+        function setTarget(){
+          currentWord = words[Math.floor(Math.random() * words.length)];
+          target.textContent = currentWord;
+          currentLocation = 0;
+        }
+
+        window.addEventListener('click', function(){
+          if(!isStarted){
+            isStarted = true;
+            setTarget();
+            updateTimer();
+          }
+        });
+        init();
+        function updateTimer(){
+
+          timerId = setTimeout(function(){
+            timer--;
+            timerLabel.textContent = timer;
+            if(timer <= 0){
+              if (score>=30){
+
+                alert('あなたはタイピングの鬼だ');
+                clearTimeout(timerId);
+                init();
+                return;
+              } else if(score>=20){
+                alert('まあまあ早いタイピングじゃん')
+                clearTimeout(timerId);
+                init();
+                return;
+              }　else{
+                alert('もっと頑張れよ')
+                clearTimeout(timerId);
+                init();
+                return;
+              }
+            }
+            updateTimer()
+          }, 1000);
+
+        }
+
+        window.addEventListener('keyup', function(e){
+          if(!isStarted){
+            return;
+          }
+          console.log(String.fromCharCode(e.keyCode));
+
+
+          if(String.fromCharCode(e.keyCode) === currentWord[currentLocation].toUpperCase()){
+            console.log('score')
+            currentLocation++;
+            var placeholder = '';
+            for(var i = 0; i < currentLocation; i++){
+              placeholder += '_';
+            }
+            target.textContent = placeholder + currentWord.substring(currentLocation);
+            score++;
+            scoreLabel.textContent = score;
+            if(currentLocation === currentWord.length){
+              setTarget();
+            }
+
+          } else{
+            console.log("miss")
+            miss++;
+              missLabel.textContent = miss;
+
+          }
+
+        });
+
+
+
+      })();
+
+    </script>
+  </body>
+</html>
