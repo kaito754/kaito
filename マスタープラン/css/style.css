@@ -1,0 +1,40 @@
+.index{
+  border: 1px solid #999;
+  width:250px;
+  height:300px;
+  margin:20px;
+  padding:10px;
+  float:left;
+}
+
+#container{
+  width:940px;
+  margin:0px auto;
+  /* display:flex; */
+}
+
+#container:after{
+  content:"";
+  display:block;
+  clear:both;
+}
+a{
+  color:gray;
+}
+
+a:hover{
+  color:red;
+  cursor: pointer;
+}
+
+div#form{
+  width:500px;
+  margin:20px auto;
+}
+#form div{
+  margin:0px;
+}
+input, textarea{
+  margin: 10px 10px;
+  width:300px;
+}
