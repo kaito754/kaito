@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="text">名古屋大学は</div>
+  <img class='pakutaso' src="http://www.norbesa.jp/culture/wp-content/uploads/https-www.pakutaso.com-assets_c-2014-10-BL008-cyottomatteyo20140810500-thumb-1000xauto-5578-700x466.jpg" alt="">
+  <h1 class='hide'>まじでうんち〜〜〜〜ーーーー</h1>
+  <script>
+    (function(){
+      'use strict';
+    var text = document.getElementById('text');
+    var texts = ['実は','うんち','なんです'];
+    var img = document.getElementsByClassName('pakutaso');
+    
+    img[0].addEventListener('click',()=>{
+      var hide = document.getElementsByClassName('hide');
+      hide[0].className = 'clicked'
+    });
+      setTimeout(() => {
+      text.textContent = texts[0];
+    },1000);
+    setTimeout(() => {
+      text.textContent = texts[1];
+    },2000);
+    setTimeout(() => {
+      text.textContent = texts[2];
+    },3000);
+    
+
+
+    
+
+
+    })();
+  </script>
+</body>
+</html>

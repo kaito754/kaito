@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>mymap</title>
+    <style media="screen">
+      #target{
+        width: 550px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="target"></div>
+      <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyBsWee-QHZFaYyQxraiuYneTbYq34I-bLo&callback=initMap" async defer>
+      </script>
+      <script>
+        function initMap(){
+          'use strict';
+          var target = document.getElementById('target');
+          var map;
+          var tokyo = {lat: 35.708011, lng: 139.722536};
+          var marker;
+
+          map = new google.maps.Map(target,{
+            center: tokyo,
+            zoom:15
+          });
+
+
+          marker = new google.maps.Marker({
+            position: tokyo,
+            map: map,
+            title: 'Tokyo',
+
+            animation: google.maps.Animation.BOUNCE
+
+          });
+          map.addListener('click', function(e){
+            var moji = ['Fランク','うんち大学','うんち','あほ！'];
+            var random = moji[Math.floor(Math.random()*moji.length)];
+
+            var marker = new google.maps.Marker({
+              position:e.latLng,
+              map: map,
+
+              animation: google.maps.Animation.DROP
+
+            });
+            var infoWindow = new google.maps.InfoWindow({
+              content:random
+            });
+            marker.addListener('click', function(){
+              infoWindow.open(map,marker);
+            });
+          });
+
+
+        }
+      </script>
+
+  </body>
+</html>

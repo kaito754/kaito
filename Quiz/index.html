@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Quiz</title>
+    <style media="screen">
+      body{
+
+        font-size: 14px;
+        font-family: Verdana, sans-serif;
+      }
+
+      .container {
+        width: 400px;
+        margin: 10px auto;
+        position: relative;
+      }
+
+      #question {
+        background: #cce5ff;
+        color: #004085;
+        height:40px;
+        border-radius: 4px;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      #answers{
+        list-style: none;
+        margin:0;
+      }
+
+      #answers > li{
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+      #answers > li:hover{
+        corsor:pointer;
+        background: #f8f8f8;
+      }
+
+      #btn, #result > a {
+        cursor: pointer;
+        background: #3498db;
+        border-radius: 4px;
+        padding: 10px;
+        text-align: center;
+        color: #fff;
+        box-shadow: 0 3px 0 #2880b9;
+      }
+      #btn.disabled{
+        opacity: 0.6;
+
+      }
+
+      #answers > li.correct {
+        background: #d4edda;
+        border-color: #c3e6cb;
+        color: #155724;
+        font-weight: bold;
+      }
+      #answers > li.wrong {
+        background: #f8d8da;
+        border-color: #f5c6cb;
+        color: #721c24;
+        font-weight: bold;
+      }
+
+      #result {
+        position:absolute;
+        top:-500px;
+        left:0;
+        right:0;
+        margin:0 auto;
+        background: #fff;
+        width: 300px;
+        border-radius: 3px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+        transition:0.4s ease-out;
+      }
+
+      #result > p {
+        font-size: 24px;
+
+      }
+      #result > a{
+        display:block;
+        text-decoration: none;
+        color:#fff;
+
+      }
+
+      #result.show{
+
+        top:50px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id='question'></div>
+      <ul id = 'answers'>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <div id='btn' class="disabled">
+      Next
+      </div>
+      <div id='result'>
+        <p>Score: 3/3</p>
+        <a href="">Replay?</a>
+      </div>
+    </div>
+    <script >
+      (function(){
+      'use strict';
+
+      var question = document.getElementById('question');
+      var btn = document.getElementById('btn');
+      var result = document.getElementById('result');
+      var answers = document.querySelectorAll('#answers > li');
+      var scoreLabel = document.querySelector('#result > p');
+      var shuffledAnswers;
+      var quizSet = [
+        {q: '名越くんは？',a:['筋肉モリモリ','ガリガリ','中肉中背']},
+        {q: '名越くんが好きなのは？',a:['喧嘩','ゲーム','漫画']},
+        {q: '名越くんはまじで?',a:['すごすぎてもはやすごくない','すごくない','すごい']},
+
+      ];
+
+      var currentNum = 0;
+      var isAnswered;
+      var score = 0;
+
+      function shuffle(arr){
+       var i;
+       var j;
+       var tmp;
+       for(i = arr.length - 1; i >= 0; i--){
+         j = Math.floor(Math.random()*(i+1));
+         tmp = arr[i];
+         arr[i] = arr[j];
+         arr[j] = tmp;
+       }
+       return arr;
+
+      }
+      function setQuiz(){
+
+        var i;
+        question.textContent = quizSet[currentNum].q;
+        shuffledAnswers = shuffle(quizSet[currentNum].a.slice());
+        // answers[0].textContent = shuffledAnswers[0];
+        // answers[1].textContent = shuffledAnswers[1];
+        // answers[2].textContent = shuffledAnswers[2];
+        isAnswered = false;
+        for (i =0; i < answers.length; i++){
+          answers[i].classList.remove('correct');
+          answers[i].classList.remove('wrong');
+          answers[i].textContent = shuffledAnswers[i];
+
+        }
+        btn.classList.add('disabled');
+        if(currentNum === quizSet.length - 1){
+          btn.textContent = 'showscore';
+        }
+
+      }
+
+      function setEvents() {
+        var i;
+        for (i = 0; i < answers.length; i++) {
+          answers[i].addEventListener('click', function() {
+            checkAnswer(this);
+          });
+        }
+        btn.addEventListener('click', function() {
+          if (this.classList.contains('disabled')) {
+            return;
+          }
+          // setQuiz();
+          if (currentNum === quizSet.length) {
+            // show score
+            console.log('Score: ' + score + ' / ' + quizSet.length);
+            scoreLabel.textContent = 'Score: ' + score + ' / ' + quizSet.length
+            result.classList.add('show');
+          } else {
+            setQuiz();
+          }
+        });
+      }
+
+      function checkAnswer(node){
+        if(isAnswered){
+          return;
+        }
+        isAnswered = true;
+        if(node.textContent === quizSet[currentNum].a[0]){
+          console.log('correct')
+          node.textContent += '...Correct!'
+          node.classList.add('correct');
+          score++;
+        } else {
+          console.log('wrong')
+            node.textContent += '...Wrong!'
+          node.classList.add('wrong');
+        }
+      btn.classList.remove('disabled');
+      currentNum++;
+
+      }
+
+      setQuiz();
+
+      setEvents();
+
+      })();
+
+    </script>
+  </body>
+</html>

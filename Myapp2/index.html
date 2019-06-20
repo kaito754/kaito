@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>slideshow</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <main>
+        <img src="img/food0.jpg" width="300" height="200" alt="" id ="target">
+        <i class="fa fa-chevron-circle-left" aria-hidden="true" id = "prev"></i>
+
+        <i class="fa fa-chevron-circle-right" aria-hidden="true" id = "next"></i>
+      </main>
+
+      <nav>
+        <ul id = "thumbnails">
+          <!-- <li class="current"><img src="img/food0.jpg" width="45" height="30" alt=""></li>
+          <li><img src="img/food1.jpg" width="45" height="30" alt=""></li>
+          <li><img src="img/food2.jpg" width="45" height="30" alt=""></li>
+          <li><img src="img/food3.jpg" width="45" height="30" alt=""></li> -->
+        </ul>
+        <div id = "play">
+          <i class="fa fa-play" aria-hidden="true"></i>再生
+        </div>
+        <div id = "pause" class = "hidden">
+            <i class="fa fa-play" aria-hidden="true"></i>停止
+        </div>
+      </nav>
+    </div>
+    <script src = "js/main.js">
+    </script>
+  </body>
+</html>

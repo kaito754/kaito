@@ -1,0 +1,35 @@
+html{
+  background-image:url('https://pbs.twimg.com/media/DiY28bNVMAEthyV.jpg');
+  background-size: cover;
+
+}
+
+.container{
+  margin:0 auto;
+  width:800px;
+}
+header{
+  /* background:tomato; */
+}
+main{
+  /* background:rosybrown; */
+}
+
+.top-text{
+  font-size:50px;
+  margin-bottom:10px;
+  text-align: center;
+}
+.article{
+  overflow: hidden;
+}
+.img1{
+  float:left;
+}
+#main-text{
+  color:blue;
+  padding-top:15px;
+  /* line-height: 270px; */
+  /* text-align:center; */
+  font-size:40px;
+}
